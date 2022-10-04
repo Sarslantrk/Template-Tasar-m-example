@@ -2,7 +2,7 @@
     {
         "Status": 0,
         "Project_Name":"Protein vue.js first week",
-        "Complated":10,
+        "Complated":96,
         "Employees": [
             {
                 "Employee_Name":"Seyit Atrslanturk",
@@ -34,6 +34,10 @@
         {
             "Employee_Name":"Emircan Ozenir",
             "Employee_Avatar":"https://avatars.githubusercontent.com/u/81494873"
+        },
+        {
+            "Employee_Name":"Engin Insel",
+            "Employee_Avatar":"https://avatars.githubusercontent.com/u/76450122"
         }
     ]
    } 

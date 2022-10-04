@@ -1,12 +1,18 @@
 <script setup>
+import { computed } from 'vue';
 import Card from '@components/Card/Card.vue';
+import projectData from '@assets/data/project.json';
+
+const projects = computed( () =>{
+    return projectData
+})
 </script>
 
 <template>
     <div class="main">
         <div class="container">
             <div class="main__wrapper">
-                <Card v-for="(item, index) in 9" :key="index" />
+                <Card v-for="(project, index) in projects" :key="index" :data="project" />
             </div>
         </div>
     </div>

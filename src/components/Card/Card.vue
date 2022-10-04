@@ -7,25 +7,13 @@ import Avatar from '@components/Avatar/Avatar.vue';
 import Tag from '@components/Tag/Tag.vue';
 import projectData from '@assets/data/project.json';
 
-const progresBarLevel = ref([]);
-
-function getProgresBar() {
-const progresBarLevel = projectData.map(barLevel => barLevel.Complated);
-const uniqueNames = [...new Set(progresBarLevel)];
-return uniqueNames;
-}
-
-onMounted (() => {
-progresBarLevel.value = getProgresBar();
-
-})
-
+const props = defineProps(['data']);
 </script>
 
 <template>
     <div class="card">
         <div class="card__header">
-            <p>Prorect Title goes here</p>
+            <p>{{props.data.Project_Name}}</p>
             <div class="btn-group btn-group--sm">
                 <Button icon="edit" variant="icon" classes="card__header__button" />
                 <Button icon="more_vert" variant="icon" classes="card__header__button" />
@@ -47,17 +35,16 @@ progresBarLevel.value = getProgresBar();
                 </div>
                 <div class="grid__col">
                     <div class="avatar-group">
-                        <Avatar image="https://avatars.githubusercontent.com/u/25702910" size="32" />
-                        <Avatar image="https://avatars.githubusercontent.com/u/81494873" size="32" />
-                        <Avatar image="https://avatars.githubusercontent.com/u/112624968" size="32" />
+                        <Avatar  v-for="employee in props.data.Employees "  :key="employee"  :image="employee.Employee_Avatar" size="32" />
+                        
                         <Button icon="add" variant="circle" />
                     </div>
                 </div>
             </div>
         </div>
-        <div v-for= "seyit in progresBarLevel" :key= "seyit" class= "card__action">                
-                <Progress name="Progress" :value= {seyit} :max= "100" /> 
-            </div>
+        <div  class= "card__action">                
+            <Progress name="Progress" :value="props.data.Complated" :max= "100" /> 
+        </div>
 
     </div>
 </template>
