@@ -1,4 +1,5 @@
 <script setup>
+import {ref, onMounted} from 'vue';
 import Progress from '@components/Progress/Progress.vue';
 import Button from '@components/Button/Button.vue';
 import Windget from '@components/Widget/Windget.vue';
